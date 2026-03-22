@@ -337,4 +337,8 @@ El entorno queda ahora significativamente más seguro frente a ataques externos.
 Archivo incluido en el repositorio.
 
 ###  Máquina Virtual
-[Descargar máquina virtual](LINK)
+
+Formato: OVA (VirtualBox)
+
+🔗 Descargar:
+https://drive.google.com/file/d/14leqmWU1Ry_9Zk-Lzh59UB2wln6Gfge3/view?usp=sharing
