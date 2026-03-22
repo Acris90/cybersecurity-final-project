@@ -342,3 +342,247 @@ Formato: OVA (VirtualBox)
 
 🔗 Descargar:
 https://drive.google.com/file/d/14leqmWU1Ry_9Zk-Lzh59UB2wln6Gfge3/view?usp=sharing
+
+# Fase 3: Plan de Respuesta a Incidentes y SGSI (ISO 27001)
+
+## 1. Introducción
+
+En esta fase se desarrolla un plan de respuesta a incidentes basado en la guía NIST SP 800-61, junto con la implementación de un Sistema de Gestión de Seguridad de la Información (SGSI) alineado con la norma ISO 27001.
+
+El objetivo es dotar a la organización de procedimientos estructurados que permitan detectar, analizar, contener y recuperar de incidentes de seguridad, así como establecer un marco de mejora continua que reduzca la probabilidad de futuros ataques.
+
+Este plan se basa en el incidente previamente analizado, en el que se detectó un acceso no autorizado al sistema mediante SSH, posiblemente utilizando credenciales comprometidas.
+
+---
+
+## 2. Plan de Respuesta a Incidentes (NIST SP 800-61)
+
+El plan se estructura en seis fases clave:
+
+---
+
+### 2.1 Preparación
+
+La fase de preparación es fundamental para garantizar una respuesta eficaz ante incidentes.
+
+Se han definido las siguientes medidas:
+
+- Establecimiento de roles y responsabilidades dentro del equipo de seguridad.
+- Implementación de herramientas de monitorización y análisis de logs.
+- Configuración de registros del sistema (logs) para detectar actividad sospechosa.
+- Formación básica en seguridad para los usuarios.
+- Definición de procedimientos de actuación ante incidentes.
+- Realización de copias de seguridad periódicas.
+
+Estas medidas permiten a la organización estar preparada para actuar rápidamente ante cualquier amenaza.
+
+---
+
+### 2.2 Identificación
+
+La identificación consiste en detectar y confirmar la existencia de un incidente de seguridad.
+
+Para ello se utilizan:
+
+- Análisis de logs del sistema (`/var/log/auth.log`).
+- Monitorización de accesos remotos (SSH).
+- Identificación de conexiones sospechosas.
+- Revisión de procesos en ejecución.
+- Análisis de puertos abiertos.
+
+Durante el análisis realizado se identificó:
+
+- Acceso no autorizado desde una IP externa.
+- Uso de autenticación por contraseña.
+- Posible manipulación de registros (logs).
+- Indicios de persistencia en el sistema.
+
+---
+
+### 2.3 Contención
+
+El objetivo de esta fase es limitar el impacto del incidente y evitar su propagación.
+
+Las acciones aplicadas fueron:
+
+- Aislamiento del sistema afectado de la red.
+- Bloqueo de direcciones IP sospechosas.
+- Desactivación de cuentas comprometidas.
+- Implementación de reglas de firewall restrictivas.
+- Restricción temporal de accesos remotos.
+
+Se diferencian dos tipos de contención:
+
+- **Contención a corto plazo:** aislamiento inmediato del sistema.
+- **Contención a largo plazo:** aplicación de medidas permanentes de seguridad.
+
+---
+
+### 2.4 Erradicación
+
+En esta fase se eliminan completamente las causas del incidente.
+
+Medidas aplicadas:
+
+- Eliminación de usuarios maliciosos.
+- Revisión y eliminación de posibles rootkits.
+- Limpieza del sistema de archivos sospechosos.
+- Actualización del sistema operativo y servicios.
+- Corrección de configuraciones inseguras.
+
+Se prestó especial atención a:
+
+- Servicios expuestos innecesariamente.
+- Configuraciones débiles en SSH.
+- Falta de control de accesos.
+
+---
+
+### 2.5 Recuperación
+
+El objetivo es restaurar el sistema a un estado seguro y operativo.
+
+Acciones realizadas:
+
+- Restauración del sistema desde backups seguros.
+- Cambio de credenciales de todos los usuarios.
+- Reconfiguración de servicios críticos.
+- Reapertura controlada del acceso remoto.
+- Monitorización intensiva tras la recuperación.
+
+Se verifica que el sistema:
+
+- No presenta actividad sospechosa.
+- Funciona correctamente.
+- Está protegido frente a ataques similares.
+
+---
+
+### 2.6 Lecciones aprendidas
+
+Tras el análisis del incidente, se identificaron los siguientes problemas:
+
+- Uso de contraseñas débiles.
+- Falta de autenticación segura (uso de claves SSH).
+- Ausencia de monitorización continua.
+- Configuración insegura de servicios expuestos.
+
+Como mejora:
+
+- Implementación de autenticación por clave pública.
+- Restricción de acceso SSH.
+- Monitorización activa del sistema.
+- Aplicación de políticas de seguridad.
+
+---
+
+## 3. Respuesta ante un ataque similar
+
+En caso de repetirse un incidente similar, la organización seguirá el siguiente procedimiento:
+
+1. Detección del incidente mediante monitorización.
+2. Bloqueo inmediato del origen del ataque.
+3. Aislamiento del sistema afectado.
+4. Análisis forense del incidente.
+5. Eliminación de la amenaza.
+6. Restauración desde copias de seguridad.
+7. Refuerzo de medidas de seguridad.
+
+Este enfoque reduce el tiempo de respuesta y minimiza el impacto en la organización.
+
+---
+
+## 4. Medidas de protección de datos
+
+### 4.1 Copias de seguridad
+
+- Realización de backups periódicos automatizados.
+- Almacenamiento en ubicaciones seguras (externas o en la nube).
+- Verificación de integridad de los datos.
+- Pruebas de restauración.
+
+---
+
+### 4.2 Cifrado de datos
+
+- Uso de protocolos seguros (SSH, HTTPS).
+- Cifrado de datos sensibles almacenados.
+- Protección de credenciales.
+- Uso de algoritmos de cifrado robustos.
+
+---
+
+### 4.3 Control de accesos
+
+- Aplicación del principio de mínimo privilegio.
+- Uso de contraseñas robustas.
+- Implementación de autenticación mediante claves SSH.
+- Restricción de acceso por IP.
+- Auditoría de accesos.
+
+---
+
+## 5. Implementación del SGSI (ISO 27001)
+
+El Sistema de Gestión de Seguridad de la Información (SGSI) permite gestionar la seguridad de forma estructurada.
+
+---
+
+### 5.1 Análisis de riesgos
+
+Se identificaron los siguientes riesgos:
+
+- Accesos no autorizados.
+- Exposición de servicios.
+- Pérdida de datos.
+- Instalación de malware.
+- Escalada de privilegios.
+
+Cada riesgo se evalúa en función de:
+
+- Probabilidad
+- Impacto
+
+---
+
+### 5.2 Políticas de seguridad
+
+Se definen las siguientes políticas:
+
+- Política de control de accesos.
+- Política de contraseñas.
+- Política de copias de seguridad.
+- Política de gestión de incidentes.
+- Política de uso aceptable de sistemas.
+
+---
+
+### 5.3 Tratamiento de riesgos
+
+Medidas implementadas:
+
+- Configuración de firewall.
+- Desactivación de servicios innecesarios.
+- Monitorización continua.
+- Actualizaciones periódicas.
+- Hardening del sistema.
+
+---
+
+### 5.4 Mejora continua
+
+El SGSI se basa en un ciclo de mejora continua:
+
+- Auditorías periódicas.
+- Revisión de logs.
+- Evaluación de vulnerabilidades.
+- Actualización de controles de seguridad.
+- Formación continua del personal.
+
+---
+
+## 6. Conclusión
+
+La implementación de un plan de respuesta a incidentes basado en NIST, junto con un SGSI conforme a ISO 27001, permite a la organización mejorar significativamente su nivel de seguridad.
+
+Estas medidas no solo permiten responder eficazmente ante incidentes, sino también prevenir futuros ataques, proteger la información crítica y garantizar la continuidad de los servicios.
