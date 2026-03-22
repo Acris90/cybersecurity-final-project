@@ -330,3 +330,11 @@ Tras la fase de explotación y posterior hardening:
 El entorno queda ahora significativamente más seguro frente a ataques externos.
 
 ---
+
+## Entregables
+
+### Packet Tracer
+Archivo incluido en el repositorio.
+
+###  Máquina Virtual
+[Descargar máquina virtual](LINK)
