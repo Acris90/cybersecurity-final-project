@@ -20,7 +20,7 @@ Esto indica un acceso no autorizado al sistema.
 
 **Evidencias:**
 
-* `fase1_1_logs_ssh.png`
+* [`fase1_1_logs_ssh.png`](./evidencias/fase1_1_logs_ssh.png)
 * `fase1_1_logs_ssh1.png`
 
 ---
